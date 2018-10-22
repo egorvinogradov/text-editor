@@ -1,0 +1,32 @@
+
+<html manifest="/manifest.appcache">
+<head>
+  <title>+++ 3</title>
+</head>
+<body>
+<style>
+  body {
+    overflow: visible !important;
+  }
+  textarea {
+    margin: 30px 0 300px 30px;
+    width: calc(100vw - 80px);
+    height: calc(100vh - 80px);
+    resize: vertical;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 10px 13px;
+  }
+</style>
+    <textarea autofocus></textarea>
+    <script>
+      var params = {};
+      location.search.replace(/^\?/, '').split('&').forEach(function(pair){
+        params[pair.split('=')[0]] = decodeURIComponent(pair.split('=')[1]);
+      });
+      if (params.text) {
+        document.getElementsByTagName('textarea')[0].value = params.text;
+      }
+    </script>
+</body>
+</html>
